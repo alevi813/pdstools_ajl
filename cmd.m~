@@ -5,12 +5,11 @@ pdstoolsdir = '/Users/Aaron/pdstools_ajl/';
 
 addpath(pdstoolsdir)
 addpath(fullfile(pdstoolsdir, 'dependencies'))
+% plxname = '/Users/Aaron/Dropbox/twagData/pat/ephys/p20150827twag.plx';
+% pdsfile = '/Users/Aaron/Dropbox/twagData/pat/late biased/20150827/pat20150827twag1534.PDS';
 
-plxname = '/Users/Aaron/Dropbox/twagData/pat/ephys/p20150827twag.plx';
-pdsfile = '/Users/Aaron/Dropbox/twagData/pat/late biased/20150827/pat20150827twag1534.PDS';
-
-% plxname = '/Users/Aaron/Dropbox/twagData/pat/ephys/p20150903twag.plx';
-% pdsfile = '/Users/Aaron/Dropbox/twagData/pat/late biased/20150903/pat20150903twag1407.PDS';
+plxname = '/Users/Aaron/Dropbox/twagData/pat/ephys/p20150903twag.plx';
+pdsfile = '/Users/Aaron/Dropbox/twagData/pat/late biased/20150903/pat20150903twag1407.PDS';
 
 %% load files, get timing
 load(pdsfile, '-mat')
@@ -88,9 +87,9 @@ allTrChoice = [ones(size(trSpkCnt1, 1),1); zeros(size(trSpkCnt2, 1),1)];
 
 [mCP,sCP] = choiceProbabilityCalculate(allTrSpikes, allTrChoice);
 figure; hold on
-plot(bc, mCP, 'k') 
-%      bc, mCP+sCP, 'k--',...
-%      bc, mCP-sCP, 'k--');
+plot(bc, mCP, 'k', ...
+     bc, mCP+sCP, 'k--',...
+     bc, mCP-sCP, 'k--');
 
 
 
